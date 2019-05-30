@@ -24,4 +24,5 @@ code {
   box-shadow: 0 3px 10px #ccc;
   transform: rotate(2deg) scale(1.2);
   overflow: hidden;
+  z-index: -100;
 }
