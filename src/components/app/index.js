@@ -5,6 +5,15 @@ import { Product } from '../product';
 
 const products = [
   {
+    name: 'Wheat Malt - Malteurop',
+    brand: 'Malteurop',
+    image: '/assets/slod1.jpg',
+    price: {
+      amount: 6,
+      currency: 'PLN'
+    }
+  },
+  {
     name: 'Barley Malt',
     brand: 'Viking Malt',
     image: '/assets/slod2.jpg',
@@ -16,7 +25,7 @@ const products = [
   {
     name: 'Wheat Malt',
     brand: 'Viking Malt',
-    image: '/assets/slod2.jpg',
+    image: '/assets/slod3.jpg',
     price: {
       amount: 6,
       currency: 'PLN'
@@ -38,9 +47,9 @@ class App extends PureComponent {
           </h2>
         </header>
         <main>
-          { products.map(product => {
-            return <Product product={ product } />
-          }) }
+          { products.map(product => 
+            <Product product={ product } />
+          ) }
         </main>
       </div>
     );
