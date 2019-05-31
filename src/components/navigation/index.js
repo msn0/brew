@@ -4,7 +4,26 @@ import styles from './styles.module.css';
 export function Navigation() {
     return (
         <nav className={ styles.wrapper }>
-            start
+            <div className={ styles.logo }>
+                brew<sup>2</sup>
+            </div>
+            <ul className={styles.menu}>
+                <li>
+                    shop
+                </li>
+                <li className={ styles.active }>
+                    beer making kits
+                </li>
+                <li>
+                    kit instructions
+                </li>
+                <li>
+                    articles
+                </li>
+                <li>
+                    sign in
+                </li>
+            </ul>
         </nav>
     );
 }

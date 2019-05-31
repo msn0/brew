@@ -6,9 +6,7 @@ class App extends PureComponent {
   render() {
     return (
       <div className={ styles.wrapper }>
-        <div className={ styles.navWrapper }>
-          <Navigation />
-        </div>
+        <Navigation />
         <header className={ styles.header }>
           <h1>
             brew<sup>2</sup>
