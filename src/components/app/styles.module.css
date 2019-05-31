@@ -3,7 +3,7 @@
 }
 
 .header {  
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,4 +24,16 @@
 
 .link {
   color: #61dafb;
+}
+
+main {
+  width: 1000px;
+  background: rgba(255,255,255,.9);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  border-radius: 5px;
+  background-color: #ffffff;
 }
