@@ -8,10 +8,10 @@ export function Navigation() {
                 brew<sup>2</sup>
             </div>
             <ul className={styles.menu}>
-                <li>
+                <li className={ styles.active }>
                     shop
                 </li>
-                <li className={ styles.active }>
+                <li>
                     beer making kits
                 </li>
                 <li>
