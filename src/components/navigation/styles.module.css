@@ -16,12 +16,12 @@
     font-weight: bold;
 }
 
-ul {
+.menu {
     list-style-type: none;
     display: flex;
 }
 
-li {
+.menu li {
     padding: 0 20px;
     margin: 0 10px;
     font-family: 'Open Sans Condensed';
@@ -31,11 +31,11 @@ li {
     line-height: 60px;
 }
 
-li.active {
+.menu li.active {
     background: rgba(0,0,0,.05);
 }
 
-li:hover {
+.menu li:hover {
     background: rgba(0,0,0,.05);
     cursor: pointer;
 }

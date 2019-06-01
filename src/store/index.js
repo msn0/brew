@@ -4,5 +4,5 @@ import rootReducer from './reducer';
 
 export default (initialState = {
     products,
-    cart: ['3', '4']
+    cart: []
 }) => createStore(rootReducer, initialState);

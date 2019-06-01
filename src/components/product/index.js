@@ -1,8 +1,8 @@
 import React from 'react';
-import { CartButton } from '../cart-button';
+import CartButton from '../cart-button';
 import styles from './styles.module.css';
 
-export function Product ({ product, onAddToCart }) {
+export function Product ({ product }) {
     const price = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: product.price.currency
@@ -26,7 +26,7 @@ export function Product ({ product, onAddToCart }) {
                     { product.description }
                 </p>
                 <p className={ styles.cartButtonWrapper }>
-                    <CartButton onAddToCart={ () => onAddToCart(product.id) } />
+                    <CartButton product={ product } />
                 </p>
             </div>
         </article>
