@@ -10,12 +10,12 @@
     "redux": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "now-dev": "react-scripts start",
-    "now-build": "react-scripts build",
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
+    "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
+    "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject",
+    "now-dev": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "now-build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "lint": "eslint --fix ."
   },
   "eslintConfig": {
