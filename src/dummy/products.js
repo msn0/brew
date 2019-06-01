@@ -1,6 +1,6 @@
 import slod1 from './assets/slod1.jpg';
 import slod2 from './assets/pilzviking.jpg';
-import slod3 from './assets/slod3.jpg';
+import slod3 from './assets/pszeviking.jpg';
 import wb06 from './assets/wb06.jpg';
 
 export default [
@@ -26,7 +26,7 @@ export default [
             'Barwa 2-5 EBC. Może stanowić 100% zasypu podczas zacierania.',
         image: slod2,
         price: {
-            amount: 5,
+            amount: 3.8,
             currency: 'PLN'
         },
         quantity: 1,
@@ -34,11 +34,16 @@ export default [
     },
     {
         id: '3',
-        name: 'Wheat Malt',
+        name: 'Słód pszeniczny',
         brand: 'Viking Malt',
         image: slod3,
+        description: 'Słód Pilzneński jest produkowany z jęczmienia browarnego jarego dwurzędowego, ' +
+            'typu null-lox. Warunki zamaczania i kiełkowania tego słodu są dobrane w taki sposób, ' +
+            'aby sprzyjały jak najlepszej modyfikacji produktu. Temperatura dosuszania słodu wynosi ' +
+            'zwykle 80-85 °C. Ma orzechowy, lekko słodki smak, który sprawia, że może być używany ' +
+            'jako słód podstawowy w bardzo wielu rodzajach piw. ',
         price: {
-            amount: 6,
+            amount: 4.2,
             currency: 'PLN'
         },
         quantity: 1,
