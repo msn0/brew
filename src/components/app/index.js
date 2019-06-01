@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Navigation } from '../navigation';
 import { Product } from '../product';
+import Cart from '../cart';
 import styles from './styles.module.css';
 
-function App({ products }) {
+function App({ products, cart = [] }) {
     return (
         <div className={ styles.wrapper }>
             <Navigation />
@@ -19,6 +20,11 @@ function App({ products }) {
             <main>
                 { products.map(product => <Product key={ product.id } product={ product } />) }
             </main>
+            { cart.length > 0 &&
+                <aside>
+                    <Cart />
+                </aside>
+            }
         </div>
     );
 }
