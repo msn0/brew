@@ -7,10 +7,10 @@ export default (state = {}, action) => {
                 ...state,
                 cart: state.cart.concat(action.product)
             };
-            
+
             return Object.assign({}, state, newState);
         }
         default:
             return state;
     }
-}
+};

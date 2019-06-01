@@ -7,7 +7,7 @@ export function Navigation() {
             <div className={ styles.logo }>
                 brew<sup>2</sup>
             </div>
-            <ul className={styles.menu}>
+            <ul className={ styles.menu }>
                 <li className={ styles.active }>
                     shop
                 </li>

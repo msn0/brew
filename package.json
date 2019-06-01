@@ -15,7 +15,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "now-dev": "react-scripts start",
-    "now-build": "react-scripts build"
+    "now-build": "react-scripts build",
+    "lint": "eslint --fix ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,5 +26,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-helmut": "^4.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-react": "^7.13.0"
+  }
 }
