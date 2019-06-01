@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export function CartButton() {
+export function CartButton({ onAddToCart }) {
     return (
-        <button className={ styles.cartButton }>
+        <button onClick={ onAddToCart } className={ styles.cartButton }>
             dodaj do koszyka
         </button>
     );

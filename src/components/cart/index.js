@@ -5,7 +5,7 @@ const byId = (id, products) => products.find(product => product.id === id);
 
 function renderProduct(product) {
     return (
-        <li>{ product.name }</li>
+        <li key={ product.id }>{ product.name }</li>
     );
 }
 

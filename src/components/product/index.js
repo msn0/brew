@@ -2,7 +2,7 @@ import React from 'react';
 import { CartButton } from '../cart-button';
 import styles from './styles.module.css';
 
-export function Product ({ product }) {
+export function Product ({ product, onAddToCart }) {
     const price = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: product.price.currency
@@ -26,7 +26,7 @@ export function Product ({ product }) {
                     { product.description }
                 </p>
                 <p className={ styles.cartButtonWrapper }>
-                    <CartButton />
+                    <CartButton onAddToCart={ () => onAddToCart(product.id) } />
                 </p>
             </div>
         </article>

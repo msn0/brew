@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Navigation } from '../navigation';
 import { Product } from '../product';
 import Cart from '../cart';
+import { addToCart } from '../../store/actions';
 import styles from './styles.module.css';
 
-function App({ products, cart = [] }) {
+function App({ products, cart = [], onAddToCart }) {
     return (
         <div className={ styles.wrapper }>
             <Navigation />
@@ -18,7 +19,11 @@ function App({ products, cart = [] }) {
                 </h2>
             </header>
             <main>
-                { products.map(product => <Product key={ product.id } product={ product } />) }
+                { products.map(product =>
+                    <Product key={ product.id }
+                        product={ product }
+                        onAddToCart={ onAddToCart } />
+                ) }
             </main>
             { cart.length > 0 &&
                 <aside>
@@ -28,5 +33,8 @@ function App({ products, cart = [] }) {
         </div>
     );
 }
+const mapDispatchToProps = dispatch => ({
+    onAddToCart: id => dispatch(addToCart(id))
+});
 
-export default connect(state => state)(App);
+export default connect(state => state, mapDispatchToProps)(App);
