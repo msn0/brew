@@ -1,5 +1,5 @@
 import slod1 from './assets/slod1.jpg';
-import slod2 from './assets/slod2.jpg';
+import slod2 from './assets/pilzviking.jpg';
 import slod3 from './assets/slod3.jpg';
 import wb06 from './assets/wb06.jpg';
 
@@ -20,7 +20,7 @@ export default [
     },
     {
         id: '2',
-        name: 'Słód Pilzeński',
+        name: 'Słód Pilzneński',
         brand: 'Viking Malt',
         description: 'Podstawowy słód zarówno do piw górnej jak i dolnej fermentacji. ' +
             'Barwa 2-5 EBC. Może stanowić 100% zasypu podczas zacierania.',

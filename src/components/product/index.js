@@ -25,7 +25,7 @@ export function Product ({ product }) {
                 <p className={ styles.description }>
                     { product.description }
                 </p>
-                <p>
+                <p className={ styles.cartButtonWrapper }>
                     <CartButton />
                 </p>
             </div>
