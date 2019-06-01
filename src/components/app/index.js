@@ -17,7 +17,7 @@ function App({ products }) {
                 </h2>
             </header>
             <main>
-                { products.map(product => <Product product={ product } />) }
+                { products.map(product => <Product key={ product.id } product={ product } />) }
             </main>
         </div>
     );

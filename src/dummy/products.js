@@ -6,7 +6,7 @@ import wb06 from './assets/wb06.jpg';
 export default [
     {
         id: '1',
-        name: 'Safbrew WB-06',
+        name: 'Drożdże suche - Safbrew WB-06',
         brand: 'Fermentis',
         image: wb06,
         description: 'Specialty yeast selected for wheat beer fermentations. ' +

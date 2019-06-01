@@ -2,6 +2,11 @@ import React from 'react';
 import styles from './styles.module.css';
 
 export function Product ({ product }) {
+    const price = new Intl.NumberFormat('pl-PL', {
+        style: 'currency',
+        currency: product.price.currency
+    }).format(product.price.amount);
+
     return (
         <article className={ styles.product }>
             <div className={ styles.left }>
@@ -9,6 +14,13 @@ export function Product ({ product }) {
             </div>
             <div className={ styles.right }>
                 <h3>{ product.name }</h3>
+                <p className={ styles.price }>
+                    { price }
+                </p>
+                <p>Producent: { product.brand }</p>
+                <p className={ styles.description }>
+                    { product.description }
+                </p>
             </div>
         </article>
     );

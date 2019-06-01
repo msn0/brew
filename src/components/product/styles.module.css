@@ -22,3 +22,8 @@ h3 {
     margin: 0;
     font-size: 24px;
 }
+
+.price {
+    font-size: 30px;
+    margin: 10px 0;
+}
