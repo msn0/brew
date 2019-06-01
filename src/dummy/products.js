@@ -20,13 +20,17 @@ export default [
     },
     {
         id: '2',
-        name: 'Barley Malt',
+        name: 'Słód Pilzeński',
         brand: 'Viking Malt',
+        description: 'Podstawowy słód zarówno do piw górnej jak i dolnej fermentacji. ' +
+            'Barwa 2-5 EBC. Może stanowić 100% zasypu podczas zacierania.',
         image: slod2,
         price: {
             amount: 5,
             currency: 'PLN'
-        }
+        },
+        quantity: 1,
+        unit: 'kg'
     },
     {
         id: '3',
@@ -36,6 +40,8 @@ export default [
         price: {
             amount: 6,
             currency: 'PLN'
-        }
+        },
+        quantity: 1,
+        unit: 'kg'
     }
 ];

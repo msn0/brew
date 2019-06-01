@@ -16,6 +16,9 @@ export function Product ({ product }) {
                 <h3>{ product.name }</h3>
                 <p className={ styles.price }>
                     { price }
+                    { product.quantity &&
+                        <span className={ styles.quantity }> / { product.quantity } { product.unit }</span>
+                    }
                 </p>
                 <p>Producent: { product.brand }</p>
                 <p className={ styles.description }>
