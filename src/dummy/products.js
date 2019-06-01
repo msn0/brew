@@ -1,4 +1,4 @@
-import slod1 from './assets/slod1.jpg';
+import chmiel from './assets/chmiellub.jpg';
 import slod2 from './assets/pilzviking.jpg';
 import slod3 from './assets/pszeviking.jpg';
 import wb06 from './assets/wb06.jpg';
@@ -48,5 +48,22 @@ export default [
         },
         quantity: 1,
         unit: 'kg'
+    },
+    {
+        id: '4',
+        name: 'Chmiel lubelski',
+        brand: 'Powiśle sp.j.',
+        image: chmiel,
+        description: 'Chmiel Lubelski zaliczany jest do odmian super-aromatycznych: alfa-kwasy 3,0% 2018r. ' +
+            'Ten niezwykle aromatyczny chmiel, wykorzystywany jest przy warzeniu piw dolnej jak i górnej ' +
+            'fermentacji oraz do chmielenia warki podczas cichej fermentacji (chmielenie na zimno). ' +
+            'Bardzo dobrze znany wśród belgijskich piwowarów. Powszechnie uważa się, że należy do ' +
+            'rodziny Saaz (od Saaz mniej korzenny). Jest uprawiana w Polsce od 1964 roku. ',
+        price: {
+            amount: 4,
+            currency: 'PLN'
+        },
+        quantity: 30,
+        unit: 'g'
     }
 ];
