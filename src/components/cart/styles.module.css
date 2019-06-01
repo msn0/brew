@@ -33,3 +33,7 @@
     margin: 0;
     font-size: 16px;
 }
+
+.summary {
+    text-align: right;
+}

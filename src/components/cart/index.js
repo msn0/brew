@@ -4,11 +4,15 @@ import * as styles from './styles.module.css';
 
 const byId = (id, products) => products.find(product => product.id === id);
 
-function renderCartProduct(product) {
-    const price = new Intl.NumberFormat('pl-PL', {
+const formatPrice = (price) => {
+    return new Intl.NumberFormat('pl-PL', {
         style: 'currency',
-        currency: product.price.currency
-    }).format(product.price.amount);
+        currency: price.currency
+    }).format(price.amount);
+};
+
+function renderCartProduct(product) {
+    const price = formatPrice(product.price);
 
     return (
         <article className={ styles.cartProduct } key={ product.id }>
@@ -26,10 +30,14 @@ function renderCartProduct(product) {
 }
 
 function Cart ({ cart = [], products = [] }) {
+    // const count =
     return (
         <div className={ styles.wrapper }>
             <h4 className={ styles.header }>Twój koszyk</h4>
             { cart.map(id => renderCartProduct(byId(id, products))) }
+            <div className={ styles.summary }>
+                Razem:
+            </div>
         </div>
     );
 }
