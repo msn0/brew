@@ -1,4 +1,5 @@
 import React from 'react';
+import { CartButton } from '../cart-button';
 import styles from './styles.module.css';
 
 export function Product ({ product }) {
@@ -23,6 +24,9 @@ export function Product ({ product }) {
                 <p>Producent: { product.brand }</p>
                 <p className={ styles.description }>
                     { product.description }
+                </p>
+                <p>
+                    <CartButton />
                 </p>
             </div>
         </article>
