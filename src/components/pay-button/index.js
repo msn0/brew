@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { payAction } from '../../store/actions';
 import styles from './styles.module.css';
 
-function PayButton({ cart, products, onPayAction, children }) {
+function PayButton({ cart, onPayAction, children }) {
 
     function buildSupportedPaymentMethodData() {
         return [{
@@ -16,16 +16,23 @@ function PayButton({ cart, products, onPayAction, children }) {
     }
 
     function buildShoppingCartDetails() {
+        const displayItems = cart.map(product => ({
+            label: product.name,
+            amount: {
+                currency: product.price.currency,
+                value: product.price.amount * product.quantity
+            }
+        }));
+        const total = cart.reduce((acc, current) => {
+            acc += current.price.amount * current.quantity;
+            return acc;
+        }, 0);
+
         return {
-            displayItems: [
-                {
-                    label: 'Example item',
-                    amount: { currency: 'USD', value: '1.00' }
-                }
-            ],
+            displayItems,
             total: {
-                label: 'Total',
-                amount: { currency: 'USD', value: '1.00' }
+                label: 'Razem',
+                amount: { currency: 'PLN', value: total }
             }
         };
     }

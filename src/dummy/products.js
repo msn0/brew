@@ -20,7 +20,7 @@ export default [
     },
     {
         id: '2',
-        name: 'Słód Pilzneński',
+        name: 'Słód pilzneński',
         brand: 'Viking Malt',
         description: 'Podstawowy słód zarówno do piw górnej jak i dolnej fermentacji. ' +
             'Barwa 2-5 EBC. Może stanowić 100% zasypu podczas zacierania.',
