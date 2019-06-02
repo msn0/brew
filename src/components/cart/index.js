@@ -30,13 +30,17 @@ function renderCartProduct(product) {
 }
 
 function Cart ({ cart = [], products = [] }) {
-    // const count =
+    const amount = cart.reduce((acc, current) => {
+        const product = products.find(p => p.id === current);
+        acc += product.price.amount;
+        return acc;
+    }, 0);
     return (
         <div className={ styles.wrapper }>
             <h4 className={ styles.header }>Twój koszyk</h4>
             { cart.map(id => renderCartProduct(byId(id, products))) }
             <div className={ styles.summary }>
-                Razem:
+                Razem: { formatPrice({ amount, currency: 'PLN' }) }
             </div>
         </div>
     );
