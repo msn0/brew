@@ -5,12 +5,12 @@ import styles from './styles.module.css';
 
 function CartButton({ product, onAddToCart }) {
     return (
-        <button onClick={ () => onAddToCart(product.id) } className={ styles.cartButton }>
+        <button onClick={ () => onAddToCart(product) } className={ styles.cartButton }>
             dodaj do koszyka
         </button>
     );
 }
 
 export default connect(state => state, (dispatch) => ({
-    onAddToCart: id => dispatch(addToCart(id))
+    onAddToCart: product => dispatch(addToCart(product))
 }))(CartButton);

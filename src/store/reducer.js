@@ -9,10 +9,13 @@ export default (state = {}, action) => {
         case ADD_TO_CART: {
             const newCart = JSON.parse(JSON.stringify(state.cart));
 
-            if (isProductInCart(newCart, action.id)) {
-                newCart.find(p => p.id === action.id).quantity++;
+            if (isProductInCart(newCart, action.product.id)) {
+                newCart.find(p => p.id === action.product.id).quantity++;
             } else {
-                newCart.push({ id: action.id, quantity: 1 });
+                newCart.push({
+                    ...action.product,
+                    quantity: 1
+                });
             }
 
             return { ...state, cart: newCart };
@@ -21,7 +24,7 @@ export default (state = {}, action) => {
         case REMOVE_FROM_CART: {
             const newCart = JSON.parse(JSON.stringify(state.cart));
 
-            const product = newCart.find(p => p.id === action.id);
+            const product = newCart.find(p => p.id === action.product.id);
 
             if (product.quantity > 1 && !action.removeAll) {
                 product.quantity--;
@@ -29,7 +32,7 @@ export default (state = {}, action) => {
                 return { ...state, cart: newCart };
             }
 
-            const index = newCart.findIndex(p => p.id === action.id);
+            const index = newCart.findIndex(p => p.id === action.product.id);
 
             return {
                 ...state,

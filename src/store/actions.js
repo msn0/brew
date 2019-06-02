@@ -1,17 +1,17 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
-export function addToCart(id) {
+export function addToCart(product) {
     return {
         type: ADD_TO_CART,
-        id
+        product
     };
 }
 
-export function removeFromCart(id, removeAll = false) {
+export function removeFromCart(product, removeAll = false) {
     return {
         type: REMOVE_FROM_CART,
-        id,
+        product,
         removeAll
     };
 }

@@ -22,9 +22,7 @@ function App({ products, cart = [], onAddToCart }) {
             </header>
             <main>
                 { products.map(product =>
-                    <Product key={ product.id }
-                        product={ product }
-                        onAddToCart={ onAddToCart } />
+                    <Product key={ product.id } product={ product } />
                 ) }
             </main>
             { cart.length > 0 &&
@@ -36,7 +34,7 @@ function App({ products, cart = [], onAddToCart }) {
     );
 }
 const mapDispatchToProps = dispatch => ({
-    onAddToCart: id => dispatch(addToCart(id))
+    onAddToCart: product => dispatch(addToCart(product))
 });
 
 export default connect(state => state, mapDispatchToProps)(App);

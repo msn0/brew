@@ -5,8 +5,6 @@ import PayButton from '../pay-button';
 import { addToCart, removeFromCart } from '../../store/actions';
 import * as styles from './styles.module.css';
 
-const byId = (id, products) => products.find(product => product.id === id);
-
 const formatPrice = (price) => {
     return new Intl.NumberFormat('pl-PL', {
         style: 'currency',
@@ -14,27 +12,26 @@ const formatPrice = (price) => {
     }).format(price.amount);
 };
 
-function Cart ({ cart = [], products = [], onAddToCart, onRemoveFromCart, onPurgeFromCart }) {
+function Cart ({ cart = [], onAddToCart, onRemoveFromCart, onPurgeFromCart }) {
 
     function renderCartProduct(cartProduct) {
-        const product = byId(cartProduct.id, products);
 
         return (
-            <article className={ styles.cartProduct } key={ product.id }>
+            <article className={ styles.cartProduct } key={ cartProduct.id }>
                 <div className={ styles.left }>
-                    <img src={ product.image } alt={ product.name } />
+                    <img src={ cartProduct.image } alt={ cartProduct.name } />
                 </div>
                 <div className={ styles.right }>
-                    <h5 className={ styles.name }>{ product.name }</h5>
+                    <h5 className={ styles.name }>{ cartProduct.name }</h5>
                     <div className={ styles.price }>
-                        { cartProduct.quantity } x { formatPrice(product.price) }
+                        { cartProduct.quantity } x { formatPrice(cartProduct.price) }
                         { cartProduct.quantity > 1 && (
                             <>
                                 { ' = ' }
                                 <strong>
                                     { formatPrice({
-                                        amount: product.price.amount * cartProduct.quantity,
-                                        currency: product.price.currency
+                                        amount: cartProduct.price.amount * cartProduct.quantity,
+                                        currency: cartProduct.price.currency
                                     }) }
                                 </strong>
                             </>
@@ -46,13 +43,13 @@ function Cart ({ cart = [], products = [], onAddToCart, onRemoveFromCart, onPurg
                                 [styles.button]: true,
                                 [styles.inactive]: cartProduct.quantity <= 1
                             }) }
-                            onClick={ () => onRemoveFromCart(product.id) }>−</button>
+                            onClick={ () => onRemoveFromCart(cartProduct) }>−</button>
                         <button
                             className={ styles.button }
-                            onClick={ () => onAddToCart(product.id) }>+</button>
+                            onClick={ () => onAddToCart(cartProduct) }>+</button>
                         <span
                             className={ styles.remove }
-                            onClick={ () => onPurgeFromCart(product.id) }>usuń</span>
+                            onClick={ () => onPurgeFromCart(cartProduct) }>usuń</span>
                     </div>
                 </div>
             </article>
@@ -60,8 +57,7 @@ function Cart ({ cart = [], products = [], onAddToCart, onRemoveFromCart, onPurg
     }
 
     const amount = cart.reduce((acc, current) => {
-        const product = products.find(p => p.id === current.id);
-        acc += product.price.amount * current.quantity;
+        acc += current.price.amount * current.quantity;
         return acc;
     }, 0);
 
@@ -79,9 +75,9 @@ function Cart ({ cart = [], products = [], onAddToCart, onRemoveFromCart, onPurg
 }
 
 const mapDispatchToProps = dispatch => ({
-    onAddToCart: id => dispatch(addToCart(id)),
-    onRemoveFromCart: id => dispatch(removeFromCart(id)),
-    onPurgeFromCart: id => dispatch(removeFromCart(id, true))
+    onAddToCart: product => dispatch(addToCart(product)),
+    onRemoveFromCart: product => dispatch(removeFromCart(product)),
+    onPurgeFromCart: product => dispatch(removeFromCart(product, true))
 });
 
 export default connect(state => state, mapDispatchToProps)(Cart);
