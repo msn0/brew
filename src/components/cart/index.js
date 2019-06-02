@@ -42,7 +42,10 @@ function Cart ({ cart = [], products = [], onAddToCart, onRemoveFromCart, onPurg
                     </div>
                     <div className={ styles.controls }>
                         <button
-                            className={ classNames(styles.button, styles.inactive) }
+                            className={ classNames({
+                                [styles.button]: true,
+                                [styles.inactive]: cartProduct.quantity <= 1
+                            }) }
                             onClick={ () => onRemoveFromCart(product.id) }>−</button>
                         <button
                             className={ styles.button }
