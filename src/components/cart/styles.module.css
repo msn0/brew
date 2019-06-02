@@ -47,3 +47,28 @@
     margin: 0 10px;
     font-weight: bold;
 }
+
+.button {
+    background-color: #5188ef;
+    border: 0;
+    font-family: courier;
+    color: white;
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    margin: 8px 8px 8px 0;
+}
+
+.button.inactive {
+    background-color: lightgray;
+}
+
+.remove {
+    color: red;
+}
+
+.remove:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

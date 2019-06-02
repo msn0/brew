@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import PayButton from '../pay-button';
 import * as styles from './styles.module.css';
 
@@ -24,6 +25,11 @@ function renderCartProduct(product) {
                 <h5 className={ styles.name }>{ product.name }</h5>
                 <div className={ styles.price }>
                     1 x { price }
+                </div>
+                <div className={ styles.controls }>
+                    <button className={ classNames(styles.button, styles.inactive) }>−</button>
+                    <button className={ styles.button }>+</button>
+                    <span className={ styles.remove }>usuń</span>
                 </div>
             </div>
         </article>
