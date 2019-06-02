@@ -5,8 +5,46 @@ import styles from './styles.module.css';
 
 function PayButton({ cart, products, onPayAction, children }) {
 
+    function buildSupportedPaymentMethodData() {
+        return [{
+            supportedMethods: 'basic-card',
+            data: {
+                supportedNetworks: ['visa', 'mastercard'],
+                supportedTypes: ['debit', 'credit']
+            }
+        }];
+    }
+
+    function buildShoppingCartDetails() {
+        return {
+            id: 'order-123',
+            displayItems: [
+                {
+                    label: 'Example item',
+                    amount: { currency: 'USD', value: '1.00' }
+                }
+            ],
+            total: {
+                label: 'Total',
+                amount: { currency: 'USD', value: '1.00' }
+            }
+        };
+    }
+
     function pay() {
-        console.log('pay', cart);
+        const request = new PaymentRequest(
+            buildSupportedPaymentMethodData(),
+            buildShoppingCartDetails()
+        );
+
+        request.show().then(function(paymentResponse) {
+            console.log('paymentResponse', paymentResponse);
+            paymentResponse
+                .complete('success')
+                .then(function() {
+                    console.log('payment completed');
+                });
+        });
     }
 
     return (
