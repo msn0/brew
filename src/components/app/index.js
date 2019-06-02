@@ -6,7 +6,7 @@ import Cart from '../cart';
 import { addToCart } from '../../store/actions';
 import styles from './styles.module.css';
 
-function App({ products, cart = [], onAddToCart }) {
+function App({ products, cart = [] }) {
     return (
         <div className={ styles.wrapper }>
             <div className={ styleMedia.navigationWrapper }>
