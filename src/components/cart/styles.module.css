@@ -42,6 +42,10 @@
     font-size: 16px;
 }
 
+.price {
+    margin: 6px 0;
+}
+
 .amount {
     font-size: 24px;
     margin: 0 10px;
@@ -49,10 +53,9 @@
 }
 
 .button {
-    background-color: #5188ef;
-    border: 0;
+    border: 1px #5188ef solid;
     font-family: courier;
-    color: white;
+    color: #5188ef;
     font-size: 20px;
     width: 28px;
     height: 28px;
@@ -61,7 +64,8 @@
 }
 
 .button.inactive {
-    background-color: lightgray;
+    border-color: lightgray;
+    color: lightgray;
 }
 
 .remove {
