@@ -6,3 +6,10 @@ export function addToCart(id) {
         id
     };
 }
+
+export function payAction(cart) {
+    return {
+        type: ADD_TO_CART,
+        cart
+    };
+}

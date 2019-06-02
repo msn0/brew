@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PayButton from '../pay-button';
 import * as styles from './styles.module.css';
 
 const byId = (id, products) => products.find(product => product.id === id);
@@ -40,7 +41,9 @@ function Cart ({ cart = [], products = [] }) {
             <h4 className={ styles.header }>Twój koszyk</h4>
             { cart.map(id => renderCartProduct(byId(id, products))) }
             <div className={ styles.summary }>
-                Razem: { formatPrice({ amount, currency: 'PLN' }) }
+                <PayButton>
+                    zapłać { formatPrice({ amount, currency: 'PLN' }) }
+                </PayButton>
             </div>
         </div>
     );
