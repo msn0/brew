@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Navigation } from '../navigation';
+import Navigation from '../navigation';
 import { Product } from '../product';
 import Cart from '../cart';
 import { addToCart } from '../../store/actions';
@@ -9,7 +9,9 @@ import styles from './styles.module.css';
 function App({ products, cart = [], onAddToCart }) {
     return (
         <div className={ styles.wrapper }>
-            <Navigation />
+            <div className={ styleMedia.navigationWrapper }>
+                <Navigation />
+            </div>
             <header className={ styles.header }>
                 <h1>
                     brew<sup>2</sup>

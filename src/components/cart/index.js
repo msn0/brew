@@ -40,11 +40,11 @@ function Cart ({ cart = [], products = [] }) {
         <div className={ styles.wrapper }>
             <h4 className={ styles.header }>Twój koszyk</h4>
             { cart.map(id => renderCartProduct(byId(id, products))) }
-            <div className={ styles.summary }>
-                <PayButton>
-                    zapłać { formatPrice({ amount, currency: 'PLN' }) }
-                </PayButton>
-            </div>
+            <PayButton>
+                Zamów i zapłać <span className={ styles.amount }>
+                    { formatPrice({ amount, currency: 'PLN' }) }
+                </span>
+            </PayButton>
         </div>
     );
 }
