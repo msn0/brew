@@ -17,7 +17,6 @@ function PayButton({ cart, products, onPayAction, children }) {
 
     function buildShoppingCartDetails() {
         return {
-            id: 'order-123',
             displayItems: [
                 {
                     label: 'Example item',
@@ -36,6 +35,8 @@ function PayButton({ cart, products, onPayAction, children }) {
             buildSupportedPaymentMethodData(),
             buildShoppingCartDetails()
         );
+
+        console.log(request);
 
         request.show().then(function(paymentResponse) {
             console.log('paymentResponse', paymentResponse);

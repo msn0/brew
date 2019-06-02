@@ -47,4 +47,5 @@ aside {
   width: 330px;
   border-bottom-left-radius: 5px;
   padding: 10px;
+  z-index: 10;
 }
