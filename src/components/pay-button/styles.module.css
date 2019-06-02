@@ -1,0 +1,13 @@
+.button {
+    background-color: #5188ef;
+    border: 0;
+    padding: 8px 20px;
+    font-family: 'Open Sans Condensed';
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    border-radius: 3px; 
+}
