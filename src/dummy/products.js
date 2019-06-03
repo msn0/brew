@@ -2,6 +2,7 @@ import chmiel from './assets/chmiellub.jpg';
 import slod2 from './assets/pilzviking.jpg';
 import slod3 from './assets/pszeviking.jpg';
 import wb06 from './assets/wb06.jpg';
+import slod4 from './assets/zakwaszajacy.jpg';
 
 export default [
     {
@@ -65,5 +66,22 @@ export default [
         },
         quantity: 30,
         unit: 'g'
+    },
+    {
+        id: '5',
+        name: 'Słód zakwaszający',
+        brand: 'Weyermann ®',
+        image: slod4,
+        description: 'Słód zakwaszajcy służy do obniżenia pH zacieru, co ma na celu efektywniejsze ' +
+            'zacieranie (pH optymalne dla działania amylaz), bardziej intensywną fermentację i daje ' +
+            'jaśniejszy kolor gotowego piwa. Zaokrągla i zwiększa pełnię smakową piw lekkich. pH 3,4-3,6. ' +
+            'Może stanowić od 0,5 do 10% zasypu podczas zacierania. Stosuje się go do piw w stylu pilsner, ' +
+            'weizen, light beer.',
+        price: {
+            amount: 12.90,
+            currency: 'PLN'
+        },
+        quantity: 1,
+        unit: 'kg'
     }
 ];

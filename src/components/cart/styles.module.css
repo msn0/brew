@@ -61,6 +61,7 @@
     height: 28px;
     padding: 0;
     margin: 8px 8px 8px 0;
+    background-color: white;
 }
 
 .button.inactive {
@@ -69,10 +70,11 @@
 }
 
 .remove {
-    color: red;
+    color: gray;
 }
 
 .remove:hover {
     cursor: pointer;
     text-decoration: underline;
+    color: red;
 }
