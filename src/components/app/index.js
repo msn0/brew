@@ -6,7 +6,7 @@ import Cart from '../cart';
 import { addToCart } from '../../store/actions';
 import styles from './styles.module.css';
 
-function App({ products, cart = [] }) {
+function App({ products, cart = [], paymentCompleted }) {
     return (
         <div className={ styles.wrapper }>
             <div className={ styleMedia.navigationWrapper }>
@@ -20,6 +20,9 @@ function App({ products, cart = [] }) {
                     The Home Brew Shop
                 </h2>
             </header>
+            { paymentCompleted &&
+                <div className={ styles.paymentCompleted }>Dziękujemy za zlożenie zamówienia</div>
+            }
             <main>
                 { products.map(product =>
                     <Product key={ product.id } product={ product } />

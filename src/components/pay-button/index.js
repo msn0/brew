@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { payAction } from '../../store/actions';
+import { paymentCompleteAction } from '../../store/actions';
 import styles from './styles.module.css';
 
-function PayButton({ cart, onPayAction, children }) {
+function PayButton({ cart, onPaymentComplete, children }) {
 
     function buildSupportedPaymentMethodData() {
         return [{
@@ -37,10 +37,14 @@ function PayButton({ cart, onPayAction, children }) {
         };
     }
 
-    function processPaymentResponse(paymentResponse) {
-        paymentResponse
-            .complete('success')
-            .then(() => console.log('payment completed'));
+    async function processPaymentResponse(paymentResponse) {
+        await fetch('https://brew-api.msn0.now.sh/pay', { method: 'POST' })
+            .then(r => r.json());
+
+        setTimeout(() => {
+            paymentResponse.complete('success');
+            onPaymentComplete();
+        }, 2000);
     }
 
     function pay() {
@@ -67,5 +71,5 @@ function PayButton({ cart, onPayAction, children }) {
 }
 
 export default connect(state => state, (dispatch) => ({
-    onPayAction: id => dispatch(payAction(id))
+    onPaymentComplete: () => dispatch(paymentCompleteAction())
 }))(PayButton);

@@ -49,3 +49,14 @@ aside {
   padding: 10px;
   z-index: 10;
 }
+
+.paymentCompleted {
+  font-size: 18px;
+  line-height: 48px;
+  background-color: rgb(128, 251, 133);
+  margin-bottom: 15px;
+  width: 880px;
+  margin: 15px auto;
+  box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}

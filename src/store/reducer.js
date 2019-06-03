@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, PAYMENT_COMPLETE } from './actions';
 
 function isProductInCart(cart, id) {
     return cart.some(product => product.id === id);
@@ -37,6 +37,14 @@ export default (state = {}, action) => {
             return {
                 ...state,
                 cart: newCart.slice(0, index).concat(newCart.slice(index + 1))
+            };
+        }
+
+        case PAYMENT_COMPLETE: {
+            return {
+                ...state,
+                cart: [],
+                paymentCompleted: true
             };
         }
 
