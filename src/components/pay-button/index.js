@@ -15,6 +15,13 @@ function PayButton({ cart, onPaymentComplete, children }) {
         }];
     }
 
+    function getTotal () {
+        return cart.reduce((acc, current) => {
+            acc += current.price.amount * current.quantity;
+            return acc;
+        }, 0);
+    }
+
     function buildShoppingCartDetails() {
         const displayItems = cart.map(product => ({
             label: product.name,
@@ -23,16 +30,12 @@ function PayButton({ cart, onPaymentComplete, children }) {
                 value: product.price.amount * product.quantity
             }
         }));
-        const total = cart.reduce((acc, current) => {
-            acc += current.price.amount * current.quantity;
-            return acc;
-        }, 0);
 
         return {
             displayItems,
             total: {
                 label: 'Razem',
-                amount: { currency: 'PLN', value: total }
+                amount: { currency: 'PLN', value: getTotal() }
             }
         };
     }
@@ -44,11 +47,16 @@ function PayButton({ cart, onPaymentComplete, children }) {
             method: 'POST',
             body: JSON.stringify({
                 payerEmail,
-                payerName
+                payerName,
+                currency: 'pln',
+                amount: getTotal()
             })
         }).then(r => r.json());
 
-        paymentResponse.complete('success');
+        setTimeout(() => {
+            paymentResponse.complete('success');
+            onPaymentComplete();
+        }, 2000);
     }
 
     function pay() {
