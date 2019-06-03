@@ -40,7 +40,13 @@ function PayButton({ cart, onPayAction, children }) {
     function pay() {
         const request = new PaymentRequest(
             buildSupportedPaymentMethodData(),
-            buildShoppingCartDetails()
+            buildShoppingCartDetails(),
+            {
+                requestPayerName: true,
+                requestBillingAddress: true,
+                requestPayerEmail: true,
+                requestShipping: true
+            }
         );
 
         console.log(request);
