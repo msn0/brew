@@ -37,28 +37,26 @@ function PayButton({ cart, onPayAction, children }) {
         };
     }
 
+    function processPaymentResponse(paymentResponse) {
+        paymentResponse
+            .complete('success')
+            .then(() => console.log('payment completed'));
+    }
+
     function pay() {
+        const options = {
+            requestPayerName: true,
+            requestBillingAddress: true,
+            requestPayerEmail: true
+        };
+
         const request = new PaymentRequest(
             buildSupportedPaymentMethodData(),
             buildShoppingCartDetails(),
-            {
-                requestPayerName: true,
-                requestBillingAddress: true,
-                requestPayerEmail: true,
-                requestShipping: true
-            }
+            options
         );
 
-        console.log(request);
-
-        request.show().then(function(paymentResponse) {
-            console.log('paymentResponse', paymentResponse);
-            paymentResponse
-                .complete('success')
-                .then(function() {
-                    console.log('payment completed');
-                });
-        });
+        request.show().then(processPaymentResponse);
     }
 
     return (
