@@ -38,13 +38,17 @@ function PayButton({ cart, onPaymentComplete, children }) {
     }
 
     async function processPaymentResponse(paymentResponse) {
-        await fetch('https://brew-api.msn0.now.sh/pay', { method: 'POST' })
-            .then(r => r.json());
+        const { payerEmail, payerName } = paymentResponse;
 
-        setTimeout(() => {
-            paymentResponse.complete('success');
-            onPaymentComplete();
-        }, 2000);
+        await fetch('https://brew-api.msn0.now.sh/pay', {
+            method: 'POST',
+            body: JSON.stringify({
+                payerEmail,
+                payerName
+            })
+        }).then(r => r.json());
+
+        paymentResponse.complete('success');
     }
 
     function pay() {
