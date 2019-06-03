@@ -50,7 +50,10 @@ function PayButton({ cart, onPaymentComplete, children }) {
                 payerName,
                 currency: 'pln',
                 amount: getTotal()
-            })
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }).then(r => r.json());
 
         setTimeout(() => {
